@@ -1,0 +1,16 @@
+{
+  "name": "currencyconverter",
+  "version": "1.0.0",
+  "description": "A Web Application that works both online and offline",
+  "main": "\u001b[D\u001b[D\u001b[D\u001bhtml)",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Amjos",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  }
+}
