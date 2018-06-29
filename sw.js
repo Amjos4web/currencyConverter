@@ -2,7 +2,7 @@
 	const cacheName = 'cache-v2';
 
 	const filesToCache = [
-		'/{repository-name} ',
+		'/{repository-name}',
 		'/{repository-name}/index.html',
 		'/{repository-name}/js/main.js',
 		'/{repository-name}/js/idb.js',
