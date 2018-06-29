@@ -8,8 +8,7 @@
 		'js/jquery.min.js',
 		'css/main.css',
 		'css/bootstrap.min.css',
-		'img/favicon.ico',
-		'https://free.currencyconverterapi.com/api/v5/currencies'
+		'img/favicon.ico'
 	];
 	
 	// cache assets
