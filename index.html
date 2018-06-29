@@ -6,15 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Amjos | Currency Converter</title>
 
-    <link rel="apple-touch-icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="img/favicon.ico">
     <!-- Place favicon.ico in the root directory -->
 
-    
-
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="../public/styles/main.scss">
-	<link rel="stylesheet" href="public/styles/bootstrap.min.css">
-    <!-- endbuild -->
+   
+	<link rel="stylesheet" href="css/bootstrap.min.css">
     
     
   </head>
@@ -36,11 +32,11 @@
 			    <!--<div class="form-inline">-->
 				  <div class='form-group'>
 				    <label>Enter Amount To Convert</label>
-				     <input class="form-control" placeholder="" value="1" size="15" id="fromAmount" type="text" onkeyup="">
+				     <input class="form-control" placeholder="" value="1" size="15" id="fromAmount" type="text" onkeyup="convertCurrency();">
 				  </div>
 				  <div class='form-group'>
 				    <label>From</label>
-				      <select class="form-control" id="convertfrom" onchange="">
+				      <select class="form-control" id="convertfrom" onchange="convertCurrency();">
 				      </select>
 				  </div>	
 				<!--</div>-->
@@ -53,7 +49,7 @@
 					<i class="fa fa-angle-double-down fa-3x"></i>
 				  </div>
 				<div class="col-sm-12 text-center">
-				  <button class="btn btn-success" id="" onclick="convertCurrency();">Convert</button>
+				  <button class="btn btn-success" id="convert" onclick="convertCurrency();">Convert</button>
 				</div>
 				<br><br><br>
 				<div class="panel panel-default">
@@ -69,8 +65,8 @@
   
 
     <!-- build:js scripts/main.js -->
-    <script src="public/scripts/main.js"></script>
-	<script src="public/scripts/jquery.min.js"></script>
+	<script src="js/jquery.min.js"></script>
+    <script src="js/main.js"></script>
     <!-- endbuild -->
   </body>
 </html>
