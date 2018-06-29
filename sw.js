@@ -2,14 +2,13 @@
 	const cacheName = 'cache-v2';
 
 	const filesToCache = [
-		'/{repository-name}',
-		'/{repository-name}/index.html',
-		'/{repository-name}/js/main.js',
-		'/{repository-name}/js/idb.js',
-		'/{repository-name}/js/jquery.min.js',
-		'/{repository-name}/css/main.css',
-		'/{repository-name}/css/bootstrap.min.css',
-		'/{repository-name}/img/favicon.ico'
+		'./index.html',
+		'js/main.js',
+		'js/idb.js',
+		'js/jquery.min.js',
+		'css/main.css',
+		'css/bootstrap.min.css',
+		'img/favicon.ico'
 	];
 	
 	// cache assets
