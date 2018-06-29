@@ -12,29 +12,29 @@
 
 
 	const currencyUrl = "https://free.currencyconverterapi.com/api/v5/currencies";
-	let countriesCurrencies;
-    const dbPromise = idb.open('countries-currencies', 1, upgradeDB => {
-        switch (upgradeDB.oldVersion) {
-            case 0:
-            upgradeDB.createObjectStore('objs', {keyPath: 'id'});
-        }
-    });
+	// let countriesCurrencies;
+    // const dbPromise = idb.open('countries-currencies', 1, upgradeDB => {
+        // switch (upgradeDB.oldVersion) {
+            // case 0:
+            // upgradeDB.createObjectStore('objs', {keyPath: 'id'});
+        // }
+    // });
 
 	fetch(currencyUrl)
 	.then(res => res.json())
 	.then(data => {
-		dbPromise.then(db => {
-			if(!db) return;
-			countriesCurrencies = [data.results];
-			const tx = db.transaction('objs', 'readwrite');
-            const store = tx.objectStore('objs');
-            countriesCurrencies.forEach(currency => {
-                for (let value in currency) {
-                    store.put(currency[value]);
-                }
-            });
-            return tx.complete;
-		});
+		// dbPromise.then(db => {
+			// if(!db) return;
+			// countriesCurrencies = [data.results];
+			// const tx = db.transaction('objs', 'readwrite');
+            // const store = tx.objectStore('objs');
+            // countriesCurrencies.forEach(currency => {
+                // for (let value in currency) {
+                    // store.put(currency[value]);
+                // }
+            // });
+            // return tx.complete;
+		// });
 		for (const key in data) {
 		  return data[key];
 		}
