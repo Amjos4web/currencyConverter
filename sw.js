@@ -16,7 +16,7 @@
 	  event.waitUntil(
         caches.open(cacheName)
         .then(cache => {
-            console.info('Caching of files Initiation');
+            //console.info('Caching of files Initiation');
             return cache.addAll(filesToCache);
         })
       );
@@ -28,7 +28,7 @@
 		  caches.keys()
 			.then(keyList => Promise.all(keyList.map(thisCacheName => {
             if (thisCacheName !== cacheName){
-                console.log("Service worker removing cached files from", thisCacheName);
+                //console.log("Service worker removing cached files from", thisCacheName);
                 return caches.delete(thisCacheName);        
             }
         })))
@@ -45,7 +45,7 @@
         cache.put(event.request, response.clone());
         return response;
       })).catch(event => {
-      console.log('Service Worker error caching and fetching');
+      //console.log('Service Worker error caching and fetching');
     }))
 	 );
 	});
