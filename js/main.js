@@ -9,7 +9,13 @@
 			});
 		});
 	}
-
+	
+	const dbPromise = idb.open('currency-rates', 1, upgradeDB => {
+		switch (upgradeDB.oldVersion) {
+			case 0:
+			upgradeDB.createObjectStore('objs', {keyPath: 'id'});
+		}
+	});
 
 	const currencyUrl = "https://free.currencyconverterapi.com/api/v5/currencies";
 	
@@ -39,20 +45,10 @@
 
 	const convertCurrency = () => 
 	{ 
-		let countriesCurrencies;
-		const dbPromise = idb.open('countries-currencies', 1, upgradeDB => {
-			switch (upgradeDB.oldVersion) {
-				case 0:
-				upgradeDB.createObjectStore('objs', {keyPath: 'id'});
-			}
-		});
+		//let countriesCurrencies;
 		
 		
-		dbPromise.then(db => {
-        if(!db) return;
-			return db.transaction('objs')
-			.objectStore('objs').getAll();
-		}).then(allObjs => {
+		
 		
 			const convertfrom = document.getElementById("convertfrom").value;
 			const convertto = document.getElementById("convertto").value;
@@ -65,20 +61,18 @@
 				}).then(data => {
 					dbPromise.then(db => {
 						if(!db) return;
-						countriesCurrencies = [data.results];
 						const tx = db.transaction('objs', 'readwrite');
 						const store = tx.objectStore('objs');
-						countriesCurrencies.forEach(currency => {
-							for (let value in currency) {
-								store.put(currency[value]);
-							}
-						});
+						
+						//console.log(data);
+						//console.log(query);
+						store.put({id: query, rates: data});
 						return tx.complete;
 					});
+					
 					const oneUnit = data[query];
 					const amt = document.getElementById("fromAmount").value;
 					document.getElementById("amountConverted").value = (oneUnit*amt).toFixed(2);
 					
-				})
-		});
+				});
 	}
