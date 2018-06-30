@@ -70,7 +70,7 @@
 				
 				const oneUnit = data[query];
 				const amt = document.getElementById("fromAmount").value;
-				document.getElementById("amountConverted").value =  (oneUnit*amt).toFixed(2);
+				document.getElementById("amountConverted").value =  `${convertto} ${(oneUnit*amt).toFixed(2)}`;
 				
 			})
 			.catch(() => {
